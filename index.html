@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiv Shakti Galla Bhandar | Premium Grain Merchants</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+        :root {
+            --primary-blue: #0b1e3b;
+            --accent-blue: #00d4ff;
+            --glass-bg: rgba(11, 30, 59, 0.75);
+            --text-light: #e0f7fa;
+            --gold-highlight: #ffd700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        /* --- Three.js Canvas --- */
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Behind content */
+            background: radial-gradient(circle at center, #1a2f55 0%, #000000 100%);
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3 {
+            font-family: 'Rajdhani', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .highlight {
+            color: var(--accent-blue);
+        }
+
+        /* --- Header --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 0 10px var(--accent-blue);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 10%;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #fff, var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+            color: #aecbe8;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            background: transparent;
+            border: 2px solid var(--accent-blue);
+            color: var(--accent-blue);
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: var(--accent-blue);
+            color: var(--primary-blue);
+            box-shadow: 0 0 20px var(--accent-blue);
+        }
+
+        /* --- Info Cards (Glassmorphism) --- */
+        .section {
+            padding: 100px 10%;
+            position: relative;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-blue);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-blue);
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: rgba(0,0,0,0.8);
+            font-size: 0.9rem;
+            color: #8892b0;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            header { padding: 20px; flex-direction: column; }
+            .logo { margin-bottom: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="canvas-container"></div>
+
+    <header>
+        <div class="logo">SHIV SHAKTI <span class="highlight">GALLA BHANDAR</span></div>
+        <div style="font-size: 0.9rem; color: var(--accent-blue);">EST. 2020</div>
+    </header>
+
+    <section class="hero">
+        <p>Prop. Jitendra Singh</p>
+        <h1>AGRICULTURAL<br>EXCELLENCE</h1>
+        <p>Leading suppliers of premium Wheat, Paddy, and Rice. Based in the heart of Kaimur, Bihar, bringing the harvest directly to the market with transparency and trust.</p>
+        <a href="#contact" class="btn">Contact Us</a>
+    </section>
+
+    <section class="section">
+        <h2 style="font-size: 2.5rem; text-align: center;">Our <span class="highlight">Services</span></h2>
+        
+        <div class="grid-container">
+            <div class="card">
+                <h3>🌾 Wheat (Gehu)</h3>
+                <p>Sourcing high-quality wheat directly from local farmers. We ensure optimal moisture content and grain purity for wholesale markets.</p>
+            </div>
+
+            <div class="card">
+                <h3>🌱 Paddy (Dhaan)</h3>
+                <p>Bulk procurement of paddy. We serve as the vital link between the fertile fields of Bhabua and major rice mills.</p>
+            </div>
+
+            <div class="card">
+                <h3>🍚 Rice Distribution</h3>
+                <p>Premium quality rice distribution. Ensuring food security and quality supply chains across the region.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact" style="background: rgba(0,0,0,0.3);">
+        <div class="card" style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <h2 style="margin-bottom: 20px;">Official Business Details</h2>
+            <p><strong>Trade Name:</strong> SHIV SHAKTI GALLA BHANDAR</p>
+            <p><strong>Proprietor:</strong> Jitendra Singh</p>
+            <p><strong>Registration Date:</strong> 12/01/2020</p>
+            <p><strong>GSTIN:</strong> 10CORPS3888H1ZC</p>
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
+            <p style="font-size: 1.2rem; color: var(--accent-blue);">📍 Address</p>
+            <p>Nateyan Kudra, Baru Ghat,<br>Kaimur (Bhabua), Bihar - 821108</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Shiv Shakti Galla Bhandar. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px;">Digitally compliant with Govt of India GST Regulations.</p>
+    </footer>
+
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        
+        const container = document.getElementById('canvas-container');
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        container.appendChild(renderer.domElement);
+
+        // Create Particles (Representing Grain/Dust/Energy)
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCount = 2000;
+        
+        const posArray = new Float32Array(particlesCount * 3);
+        
+        for(let i = 0; i < particlesCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 15; // Spread
+        }
+        
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+        // Material - The "Blue Shade" requested
+        const material = new THREE.PointsMaterial({
+            size: 0.04,
+            color: 0x00d4ff, // Electric Blue
+            transparent: true,
+            opacity: 0.8,
+            blending: THREE.AdditiveBlending
+        });
+
+        // Mesh
+        const particlesMesh = new THREE.Points(particlesGeometry, material);
+        scene.add(particlesMesh);
+
+        // Lighting
+        const pointLight = new THREE.PointLight(0xffffff, 0.1);
+        pointLight.position.x = 2;
+        pointLight.position.y = 3;
+        pointLight.position.z = 4;
+        scene.add(pointLight);
+
+        camera.position.z = 4;
+
+        // Mouse Interaction
+        let mouseX = 0;
+        let mouseY = 0;
+        let targetX = 0;
+        let targetY = 0;
+
+        const windowHalfX = window.innerWidth / 2;
+        const windowHalfY = window.innerHeight / 2;
+
+        document.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX - windowHalfX);
+            mouseY = (event.clientY - windowHalfY);
+        });
+
+        // Animation Loop
+        const clock = new THREE.Clock();
+
+        const animate = () => {
+            targetX = mouseX * 0.001;
+            targetY = mouseY * 0.001;
+
+            const elapsedTime = clock.getElapsedTime();
+
+            // Rotate entire particle system slowly
+            particlesMesh.rotation.y = .1 * elapsedTime;
+            
+            // Add wave motion to particles to mimic wind/grain flow
+            particlesMesh.rotation.x += 0.05 * (targetY - particlesMesh.rotation.x);
+            particlesMesh.rotation.y += 0.05 * (targetX - particlesMesh.rotation.y);
+
+            renderer.render(scene, camera);
+            window.requestAnimationFrame(animate);
+        };
+
+        animate();
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>
